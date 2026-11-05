@@ -1,0 +1,231 @@
+/* yangfanyun.online - Mediterranean Yacht Club Magazine */
+:root {
+  --bg: #F7F4EB;
+  --surface: #FCFAF6;
+  --primary: #0A192F;
+  --primary-hover: #1E3A8A;
+  --accent: #C84B31;
+  --text: #1E293B;
+  --muted: #64748B;
+  --border: #D8C4B6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Songti SC", "SimSun", "Georgia", serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
+a:visited { color: var(--accent); }
+a:hover { color: var(--primary); text-decoration: underline; }
+
+.top-telemetry-ribbon {
+  background: var(--primary);
+  color: #D8C4B6;
+  font-size: 0.8rem;
+  padding: 0.4rem 1.5rem;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.site-header {
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  font-size: 1.05rem;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  text-decoration: none;
+}
+.nav-links .nav-hub-link { color: var(--accent); font-weight: 700; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid var(--primary);
+  transition: all 0.25s ease;
+}
+.btn-primary { background: var(--primary); color: #F7F4EB !important; }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #FFF !important; text-decoration: none; }
+.btn-secondary { background: transparent; color: var(--primary) !important; border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent) !important; text-decoration: none; }
+
+.hero-editorial {
+  max-width: 1200px;
+  margin: 3.5rem auto 4rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-dispatch-stamp {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.2rem 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-editorial h1 {
+  font-size: 2.8rem;
+  line-height: 1.25;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+}
+.hero-editorial .editorial-quote {
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.8;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.hero-actions { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.hero-canvas-frame {
+  border: 4px double var(--border);
+  padding: 12px;
+  background: var(--surface);
+  box-shadow: 12px 12px 0 var(--border);
+}
+.hero-illus { width: 100%; height: auto; display: block; }
+
+@keyframes shipBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.2deg); }
+}
+.sailing-ship-bob1 { animation: shipBob 5s ease-in-out infinite; transform-origin: center bottom; }
+@keyframes waveFlow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-15px); } }
+.wave-mid { animation: waveFlow 4s ease-in-out infinite; }
+
+.magazine-section { max-width: 1200px; margin: 5rem auto; padding: 0 2rem; }
+.ledger-header {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.ledger-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 900; }
+.ledger-header .vol-num { font-size: 0.95rem; color: var(--accent); letter-spacing: 0.1em; }
+
+.feature-ledger { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+.ledger-row {
+  display: grid;
+  grid-template-columns: 80px 240px 1fr;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+  gap: 2rem;
+}
+.ledger-row .roman-idx { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+.ledger-row h3 { font-size: 1.35rem; color: var(--primary); }
+.ledger-row p { color: var(--muted); font-size: 1.05rem; }
+
+.coordinates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.coordinate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  position: relative;
+}
+.coordinate-card::before { content: "+"; position: absolute; top: 10px; right: 15px; color: var(--accent); font-size: 1.2rem; }
+.coordinate-card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 0.75rem; }
+.coordinate-card p { color: var(--muted); }
+
+.protocol-table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--surface); }
+.protocol-table { width: 100%; border-collapse: collapse; text-align: left; }
+.protocol-table th, .protocol-table td { padding: 1.4rem 1.8rem; border-bottom: 1px solid var(--border); }
+.protocol-table th { background: var(--primary); color: #F7F4EB; font-size: 1.1rem; font-weight: 700; }
+.protocol-table td.tier-title { font-size: 1.2rem; font-weight: 800; color: var(--primary); }
+.protocol-table td.price { font-size: 1.5rem; font-weight: 900; color: var(--accent); }
+
+.faq-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.faq-box {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 1.5rem 1.8rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.faq-box h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.6rem; }
+.faq-box p { color: var(--muted); font-size: 0.95rem; }
+
+.testimonials-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+.captain-quote { background: var(--surface); border: 1px solid var(--border); padding: 2rem; font-style: italic; }
+.captain-quote p { margin-bottom: 1.25rem; color: var(--text); }
+.captain-sign { font-weight: 800; color: var(--primary); font-style: normal; font-size: 0.95rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; }
+
+.page-container { max-width: 880px; margin: 3.5rem auto; padding: 0 2rem; }
+.article-header { border-bottom: 2px solid var(--primary); padding-bottom: 1.5rem; margin-bottom: 2.5rem; }
+.article-header h1 { font-size: 2.4rem; color: var(--primary); line-height: 1.3; margin-bottom: 1rem; }
+.article-meta { color: var(--muted); font-size: 0.95rem; display: flex; gap: 1.5rem; }
+.article-body { font-size: 1.1rem; line-height: 1.9; }
+.article-body h2 { font-size: 1.65rem; color: var(--primary); margin: 2.5rem 0 1rem 0; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.article-body h3 { font-size: 1.3rem; color: var(--primary); margin: 1.75rem 0 0.75rem 0; }
+.article-body p { margin-bottom: 1.4rem; }
+
+.site-footer { border-top: 2px solid var(--primary); background: var(--surface); padding: 3.5rem 2rem; margin-top: 6rem; }
+.footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+.footer-links { display: flex; gap: 2.5rem; }
+.footer-links a { font-size: 1rem; font-weight: 700; color: var(--primary); }
+.footer-links a:hover { color: var(--accent); }
+.copyright { color: var(--muted); font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .nav-container { flex-wrap: wrap; justify-content: center; padding: 1rem; }
+  .nav-links { order: 3; width: 100%; justify-content: center; gap: 0.75rem; margin-top: 0.5rem; }
+  .hero-editorial { grid-template-columns: 1fr; gap: 2.5rem; margin: 2rem auto; }
+  .hero-editorial h1 { font-size: 2.1rem; }
+  .ledger-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .coordinates-grid, .faq-two-col, .testimonials-row { grid-template-columns: 1fr; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+}
