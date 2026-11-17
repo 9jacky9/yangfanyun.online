@@ -1,59 +1,67 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>站长视角：自己的网站在海外打不开的排查顺序 - 扬帆云航行志</title>
-<meta name="description" content="网站在国内访问正常，海外用户却反馈打不开或很慢？从域名解析、服务器、证书、CDN 与防火墙几个方向给出排查顺序。">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>办公电脑内网能用外网慢：Windows路由与应用出站的只读排查</title>
+<meta content="办公电脑内网能用外网慢：Windows路由与应用出站的只读排查，提供分阶段验证、具名检查项目和实际操作示例，区分连接现象与业务完成状态。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-logo" aria-label="扬帆云首页"><span>扬帆云</span></a>
-      <nav class="nav-links" aria-label="全站导航">
-        <a href="index.html#ledger">航行纪要</a>
-        <a href="index.html#matrix">通航水域</a>
-        <a href="index.html#covenant">资费公约</a>
-        <a href="index.html#memo">领航答疑</a>
-        <a href="index.html#witness">船长手记</a>
-        <a href="voyage-chronicles.html" class="nav-hub-link">航海日志</a>
-      </nav>
-      <div class="nav-cta"><a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" class="btn btn-primary" rel="nofollow" target="_blank">立即开通</a></div>
-    </div>
-  </header>
-  <main class="page-container">
-    <article class="article-content">
-      <div class="article-header">
-        <h1>站长视角：自己的网站在海外打不开的排查顺序</h1>
-        <div class="article-meta"><span>来源：扬帆云使用手记</span><span>日期：2026-11-15</span><span>分类：站长笔记</span></div>
-      </div>
-      <div class="article-body">
-<h2>第一层：域名解析</h2>
-<p>在不同地区用解析工具查询你的域名，确认各地返回的地址一致且正确。解析记录刚修改时，可能存在缓存延迟。</p>
-<h2>第二层：服务器连通</h2>
-<p>从海外的测试点 ping 并访问你的服务器，看是否有丢包。服务器所在机房与线路质量，会直接影响海外访问。</p>
-<h2>第三层：证书与加密</h2>
-<p>检查证书是否过期、域名是否匹配、证书链是否完整。部分地区的浏览器对旧版本加密协议不兼容。</p>
-<h2>第四层：缓存与 CDN</h2>
-<ul><li>使用 CDN 的，检查回源是否正常。</li><li>缓存规则是否导致错误页面被缓存。</li><li>必要时清除 CDN 缓存。</li></ul>
-<h2>第五层：防护与限制</h2>
-<p>防火墙或防护服务可能把部分海外地址误判为攻击而拦截。检查访问日志与防护规则。</p>
-<h2>小结</h2>
-<p>按层排查，每层只验证一项，几步下来就能缩小范围。</p>
- </div>
-    </article>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-links">
-        <a href="sitemap.html">网站地图</a>
-        <a href="about.html">关于我们</a>
-        <a href="terms.html">服务条款</a>
-        <a href="privacy.html">隐私政策</a>
-      </div>
-      <p class="copyright">&copy; 2026 扬帆云 版权所有。专注高速稳定网络加速与全球专线互联。</p>
-    </div>
-  </footer>
+<header class="site-header">
+<div class="nav-container">
+<a aria-label="扬帆云首页" class="brand-logo" href="index.html"><span>扬帆云</span></a>
+<nav aria-label="全站导航" class="nav-links">
+<a href="index.html#ledger">航行纪要</a>
+<a href="index.html#matrix">通航水域</a>
+<a href="index.html#covenant">资费公约</a>
+<a href="index.html#memo">领航答疑</a>
+<a href="index.html#witness">船长手记</a>
+<a class="nav-hub-link" href="voyage-chronicles.html">航海日志</a>
+</nav>
+<div class="nav-cta"><a class="btn btn-primary" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">立即开通</a></div>
+</div>
+</header>
+<main class="page-container">
+<article class="article-content">
+<div class="article-header">
+<h1>办公电脑内网能用外网慢：Windows路由与应用出站的只读排查</h1>
+<div class="article-meta"><span>来源：扬帆云使用手记</span><span>日期：2026-11-15</span><span>分类：站长笔记</span></div>
+</div>
+<div class="article-body"><div data-swc-article-body="2026-11-16"><h2>先区分内部系统与外部服务</h2>
+<p>办公电脑可能同时连接公司内网、远程接入和普通互联网。内部订单系统正常而海外文档慢，或外部网页正常但内网突然打不开，往往涉及不同目标采用的路径。不要把所有地址强制改到同一个出口，先确认每类业务预期如何访问，再检查实际连接是否一致。</p>
+<p>以下流程以只读检查为主，适合把证据交给网络管理员。不要在不了解公司策略时添加永久路由、关闭管理软件或修改专用解析。目标主机必须是你已获准访问的系统，示例中的YOUR_TEST_HOST需要替换为明确的测试地址。</p>
+<h2>第一步：记录当前有效接口</h2>
+<p>在PowerShell运行<code>Get-NetIPConfiguration</code>，查看实际联网接口、地址与网关。再在命令提示符运行<code>route print</code>，保存接口列表与路由表。这里读取信息，不改变配置。若有多个虚拟接口，先用名称与当前连接状态对应，不凭编号大小判断哪个应该优先。</p>
+<p>路由表里更具体的目标范围通常优先于宽泛范围，代价等条件也会影响选择，但企业客户端还可能使用额外策略。不能只看到默认路由就推断所有应用必然走它。浏览器代理与系统路由是不同层面，某些应用可能通过代理建立连接而非直接访问目标。</p>
+<h2>第二步：验证目标端口而非只看网页</h2>
+<p>对已授权的测试主机，可运行<code>Test-NetConnection -ComputerName YOUR_TEST_HOST -Port 443 -InformationLevel Detailed</code>。查看解析地址、使用接口、源地址与端口测试结果。端口成功仅证明该次连接能够建立，不代表应用认证、页面内容或业务权限全部正常。</p>
+<p>如果端口无法建立，而同目标在另一正常接入上成功，路径差异值得调查。如果端口成功但网页返回权限不足，转向账户与应用检查。目标并不使用这个端口时，应按真实服务端口测试，不能把一个关闭端口的失败当作整台服务器不可用。</p>
+<h2>第三步：核对名称解析是否符合预期</h2>
+<p>公司内部系统可能使用专用解析，外部服务则使用公共地址。记录工具显示的目标地址，并让管理员确认是否属于预期入口。不要将内部域名改成公共解析后碰巧打开某个页面就认为修好了，它可能已经指向不同系统或错误环境。</p>
+<p>例如同一个名称在办公室返回内部地址，在外部返回公开入口，可能属于既定设计。需要比较当前身份和接入条件下应该使用哪一个，而不是选看起来延迟更低的地址。排查材料中注明地点与是否连接公司网络，能帮助管理员正确解释结果。</p>
+<h2>第四步：检查应用是否采用另一条出站</h2>
+<p>在浏览器网络面板查看失败请求域名与状态，再在已授权客户端连接记录中核对规则和出口。页面主域、登录域和附件域可能不同，部分可用不代表全部一致。只改一个已确认的测试目标并验证，不能因一个附件失败就把整个地址范围强制改路。</p>
+<p>如果命令行正常而浏览器失败，比较浏览器代理、扩展和会话；如果浏览器正常而桌面软件失败，检查桌面软件是否读取系统代理或有独立设置。把“同一台电脑”与“同一条路径”区分开，是这类问题最重要的判断。</p>
+<h2>第五步：保持一条可用的业务基线</h2>
+<p>记录一个内网只读查询、一个外部文档和一个小附件任务。每次调整后都验证这三项，防止改善外网却破坏内部业务。涉及生产配置的改动由负责人在合适窗口执行，并保留当前有效设置。普通用户提交证据即可，不需要为了证明问题而自行修改整个网关。</p>
+<p>整理<a href="https://dajichang.mom/">跨境办公线路选择</a>时，可以把外部服务访问需求作为比较条件，但公司内部系统仍需沿用批准的接入方式。共享连接服务的信息不能替代企业访问策略，也不能承诺让所有内外网业务自动共存。</p>
+<h2>把结果整理成管理员能复核的材料</h2>
+<p>一份有效材料包含设备、时间、目标域名、解析地址、使用接口、端口结果和应用错误。再附上三个基线任务的成功或失败状态，管理员就能区分路由、解析、代理与账户环节。敏感内部地址按公司渠道提交，不在公共论坛公开完整配置。</p>
+<p>修复后重新运行原来的只读检查并完成小任务，确认实际路径与预期一致。不要只以客户端图标变绿作为结案依据，业务能够持续完成、内外部访问没有互相破坏，才是这次排查真正需要的结果。</p><h2>记录问题是在连接前还是连接后出现</h2><p>在不影响工作的时间，先记录未连接公司客户端时的三个基线任务，再正常连接后重复一次。不要同时更换无线网络。若只有连接后的外部附件失败，把变化时刻、目标域名和错误一起提交，管理员更容易核对相关策略。对照只用于解释现象，不意味着可以在工作中长期绕开单位要求的接入，也不要把内部系统地址发送到不受控的检测网站。</p></div></div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-container">
+<div class="footer-links">
+<a href="sitemap.html">网站地图</a>
+<a href="about.html">关于我们</a>
+<a href="terms.html">服务条款</a>
+<a href="privacy.html">隐私政策</a>
+</div>
+<p class="copyright">© 2026 扬帆云 版权所有。专注高速稳定网络加速与全球专线互联。</p>
+</div>
+</footer>
 </body>
 </html>

@@ -1,57 +1,67 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wi-Fi 密码泄露后怎么办：修改、检查与加固 - 扬帆云航行志</title>
-<meta name="description" content="无线密码被别人知道了该怎么办？依次说明修改密码、检查连接设备、关闭 WPS、升级加密方式与开启访客网络的处理步骤。">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>加密隧道与HTTPS有什么区别：连接终点、证书和账户的三层核验</title>
+<meta content="加密隧道与HTTPS有什么区别：连接终点、证书和账户的三层核验，提供分阶段验证、具名检查项目和实际操作示例，区分连接现象与业务完成状态。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-logo" aria-label="扬帆云首页"><span>扬帆云</span></a>
-      <nav class="nav-links" aria-label="全站导航">
-        <a href="index.html#ledger">航行纪要</a>
-        <a href="index.html#matrix">通航水域</a>
-        <a href="index.html#covenant">资费公约</a>
-        <a href="index.html#memo">领航答疑</a>
-        <a href="index.html#witness">船长手记</a>
-        <a href="voyage-chronicles.html" class="nav-hub-link">航海日志</a>
-      </nav>
-      <div class="nav-cta"><a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" class="btn btn-primary" rel="nofollow" target="_blank">立即开通</a></div>
-    </div>
-  </header>
-  <main class="page-container">
-    <article class="article-content">
-      <div class="article-header">
-        <h1>Wi-Fi 密码泄露后怎么办：修改、检查与加固</h1>
-        <div class="article-meta"><span>来源：扬帆云使用手记</span><span>日期：2026-11-14</span><span>分类：家庭安全</span></div>
-      </div>
-      <div class="article-body">
-<h2>一、先修改无线密码</h2>
-<p>登录路由器管理页，修改无线密码为较长的随机组合。修改后，所有设备都需要重新连接。</p>
-<h2>二、检查连接设备</h2>
-<p>查看管理页里的设备列表，找出不认识的设备并将其加入黑名单。若发现可疑设备较多，可以同时更改管理页密码。</p>
-<h2>三、加固设置</h2>
-<ul><li>加密方式选择 WPA2 或 WPA3。</li><li>关闭 WPS 与不必要的远程管理。</li><li>隐藏无线名称并不一定更安全，不必依赖。</li></ul>
-<h2>四、开启访客网络</h2>
-<p>以后把密码告诉客人时，只提供访客网络的密码，与自家设备隔离。</p>
-<h2>五、其他注意</h2>
-<p>共享密码时避免用公开的聊天记录；定期更新固件；智能家居设备一并更新密码。</p>
- </div>
-    </article>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-links">
-        <a href="sitemap.html">网站地图</a>
-        <a href="about.html">关于我们</a>
-        <a href="terms.html">服务条款</a>
-        <a href="privacy.html">隐私政策</a>
-      </div>
-      <p class="copyright">&copy; 2026 扬帆云 版权所有。专注高速稳定网络加速与全球专线互联。</p>
-    </div>
-  </footer>
+<header class="site-header">
+<div class="nav-container">
+<a aria-label="扬帆云首页" class="brand-logo" href="index.html"><span>扬帆云</span></a>
+<nav aria-label="全站导航" class="nav-links">
+<a href="index.html#ledger">航行纪要</a>
+<a href="index.html#matrix">通航水域</a>
+<a href="index.html#covenant">资费公约</a>
+<a href="index.html#memo">领航答疑</a>
+<a href="index.html#witness">船长手记</a>
+<a class="nav-hub-link" href="voyage-chronicles.html">航海日志</a>
+</nav>
+<div class="nav-cta"><a class="btn btn-primary" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">立即开通</a></div>
+</div>
+</header>
+<main class="page-container">
+<article class="article-content">
+<div class="article-header">
+<h1>加密隧道与HTTPS有什么区别：连接终点、证书和账户的三层核验</h1>
+<div class="article-meta"><span>来源：扬帆云使用手记</span><span>日期：2026-11-14</span><span>分类：家庭安全</span></div>
+</div>
+<div class="article-body"><div data-swc-article-body="2026-11-16"><h2>先画出数据经过的几个终点</h2>
+<p>从笔记本访问网站时，数据可能经过无线接入、网络服务入口、出口与目标网站。加密隧道保护的是其两端之间的传输，HTTPS保护的是浏览器与相应网站连接终点之间的通信。两者可以同时存在，但覆盖范围不同，不能因为启用了隧道就忽略网站证书，也不能因为网站有加密就认为所有设备流量都经过同一保护。</p>
+<p>在纸上写出设备、隧道服务、网站三个节点，分别标记在哪里建立连接、在哪里结束。这样更容易理解服务方能处理什么信息，以及目标网站为什么仍然知道你登录了哪个账户。改变出口地址不会自动消除网站自己的会话与记录。</p>
+<h2>一、验证网站身份而不是只找锁图标</h2>
+<p>第一步，从已核实的书签进入目标网站。第二步，检查地址栏主机名与预期一致。第三步，在浏览器连接信息中查看证书是否有效、颁发对象是否匹配。第四步，确认没有被跳到相似拼写的陌生入口。一个拥有有效证书的钓鱼站点仍然可能欺骗用户，所以身份核对不能只看加密标记。</p>
+<p>出现证书警告时，先检查设备时间、当前网络是否需要门户登录以及实际域名。不要关闭证书验证来获得“连接成功”。如果单位网络有既定检查机制，应由负责人解释配置，不根据陌生网页的提示安装根证书。证书信任改变后，浏览器能够接受的连接终点也会改变。</p>
+<h2>二、确认隧道是否真的承载目标流量</h2>
+<p>客户端显示已连接，通常只能证明它建立了某种会话。目标应用是否进入隧道，还要看系统模式、分流规则与应用自身设置。打开客户端连接记录，找到刚刚访问的域名，核对出站和规则。找不到时先确认应用是否直接连接，不急着认定日志功能坏了。</p>
+<p>可以选择一个普通测试页面，在固定配置下访问一次，记录客户端状态与浏览器结果。随后按正常流程暂停连接工具，再对照实际路径变化。这个实验只能说明当前测试应用的情况，不能由一个网页推断所有后台进程与设备都采用相同方式。</p>
+<h2>三、分清内容、元数据与账户身份</h2>
+<p>内容加密并不意味着所有连接特征都不可见。不同参与者可能看到连接时间、流量大小或通信终点等信息，具体范围取决于协议与部署。服务方关于日志的承诺也需要独立核对，不能从技术上使用了加密推导出后台完全不保留数据。</p>
+<p>目标网站仍可能依据登录账户、浏览器会话和应用授权识别用户。若你在同一账户中切换出口，网站中的历史订单或文档不会因此消失。需要管理这些信息时，应使用账户隐私、会话与授权管理功能，而不是只调整网络工具。</p>
+<h2>四、把配置来源与凭据管理纳入检查</h2>
+<p>只从已确认的渠道获取客户端与配置，记录应用版本和更新方式。订阅地址、访问令牌或私钥可能赋予他人使用权限，不应直接贴进公开截图。诊断时可保留错误类别、协议与版本，删除不必要的完整凭据，让支持人员获得足够信息又不扩大暴露范围。</p>
+<p>设备丢失或配置泄露后，单纯关闭本机应用不一定使凭据失效。应按服务提供的正常流程撤销或更换相关凭据，并确认其他设备是否需要重新配置。账户密码、客户端令牌与网站登录会话可能独立存在，处理时逐项核对，而不是只改一个密码就结束。</p>
+<h2>五、怎样评估服务提供的安全说明</h2>
+<p>比较<a href="https://dajichang.mom/">加密连接机场服务比较</a>中的候选时，把客户端来源、协议支持和隐私说明作为待核实条件。套餐名称中的加密或专线字样，不等同于独立安全审查。证据应注明日期与范围，没有说明的部分保持未知，不自行补成绝对安全承诺。</p>
+<p>若服务要求额外安装系统证书，应明确它是为了什么功能、会影响哪些流量以及如何移除。普通隧道传输与能够检查网站内容的机制具有不同信任边界，用户需要理解实际启用的是哪一种。模糊地说“为了更快”不足以解释这种变化。</p>
+<h2>六、用最小流程做最终核验</h2>
+<p>完成配置后，访问已知正常网站，核对证书、客户端出站与账户状态，再测试一个日常小任务。断开隧道后检查应用表现是否符合预期，重新连接后确认能够恢复。把结果写成具体应用与条件，不宣传整个设备从此无风险。</p>
+<p>加密工具能够改善特定传输环节，但可靠使用仍需要正确入口、可信软件、有效证书和清楚的账户权限。把这些层次分别验收，才能知道哪一项发生问题时应该修哪里。</p><p>对每个检查项目注明查看日期和设备版本；证书、客户端与账户状态可能分别变化，旧截图只能说明当时观察到的条件，不能永久代表当前连接。</p></div></div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="footer-container">
+<div class="footer-links">
+<a href="sitemap.html">网站地图</a>
+<a href="about.html">关于我们</a>
+<a href="terms.html">服务条款</a>
+<a href="privacy.html">隐私政策</a>
+</div>
+<p class="copyright">© 2026 扬帆云 版权所有。专注高速稳定网络加速与全球专线互联。</p>
+</div>
+</footer>
 </body>
 </html>
